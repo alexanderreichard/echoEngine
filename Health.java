@@ -19,7 +19,7 @@
 public class Health {
 
     //health "bar"
-    static int maxHealth = 500;
+    static int maxHealth = 100;
     static int health = maxHealth;
 
     public static void print() {
