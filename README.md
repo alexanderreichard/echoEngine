@@ -1,2 +1,3 @@
 # echoEngine
-A text-based game engine.
+
+A game engine for coding text-based games in Java.
