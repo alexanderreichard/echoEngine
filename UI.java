@@ -1,8 +1,10 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class UI {
     //Java input scanner
     static Scanner in = new Scanner(System.in);
+    static String playerName = "John Doe";
 
     /*
      * Waits for the user to input a choice between 1 and n, and returns an
@@ -88,5 +90,29 @@ public class UI {
      */
     public static void write(String text) {
         System.out.println(text);
+    }
+
+    /*
+     * Writes to the output stream with the player's name as a speech indicator
+     */
+    public static void playerSpeak(String text) {
+        System.out.print("\nDetective " + playerName + ": ");
+        System.out.println(text);
+    }
+
+    /*
+     * Return random boolean value.
+     */
+    public static boolean flipCoin() {
+        Random random = new Random();
+        return random.nextBoolean();
+    }
+
+    /*
+     * Return a random int from a possible set of values.
+     */
+    public static int rollDie(int sides) {
+        Random random = new Random();
+        return (int) random.nextDouble() * sides + 1;
     }
 }

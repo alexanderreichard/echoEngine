@@ -1,15 +1,15 @@
 
 public class Main {
 
-    static Health health = new Health();
-    static Inventory inventory = new Inventory();
-    static UI ui = new UI();
-
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        ui.write("hello world");
+        mainMenu();
     }
 
-
+    public static void mainMenu() {
+        System.out.println("Title here");
+        System.out.println("\n1: New Game");
+        System.out.println("2: Credits");
+    }
 
 }

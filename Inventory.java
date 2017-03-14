@@ -6,29 +6,32 @@
  * added that wasn't added before.
  *
  * To reset inventory:
- * (assuming class is set to variable 'inventory')
- * inventory.reset();
+ * Inventory.reset();
  *
  * To add items:
- * inventory.add(String itemName);
+ * Inventory.add(String itemName);
+ * or
+ * Inventory.addCount(String itemName, int amount);
  *
  * To remove items:
- * inventory.remove(String itemName);
+ * Inventory.remove(String itemName);
+ * or
+ * Inventory.addCount(String itemName, int amount);
  *
  * To check if an item is in the inventory:
  * (this will return type boolean)
- * inventory.check(String itemName);
+ * Inventory.check(String itemName);
  *
  * To return the number of items of a given name in the inventory:
  * (this will return type int)
- * inventory.getCount(String itemName);
+ * Inventory.getCount(String itemName);
  *
  * To print the inventory to the screen:
  * (the order will be the order the items were added)
- * inventory.print()
+ * Inventory.print()
  *
  * To change the displayed title of the inventory:
- * inventory.setTitle(string title);
+ * Inventory.setTitle(string title);
  */
 
 public class Inventory {
@@ -109,6 +112,16 @@ public class Inventory {
     }
 
     /*
+     * Adds specified item with a certain count to the player inventory.
+     */
+    public static void addCount(String item, int amount) {
+        createItem(item);
+        int itemNum = getItemNum(item);
+        inventory[itemNum] = true;
+        inventoryCount[itemNum] += amount;
+    }
+
+    /*
      * Removes specified item from the player inventory, if it exists.
      */
     public static void remove(String item) {
@@ -121,6 +134,24 @@ public class Inventory {
             //if none left, switch to false
             if (inventoryCount[itemNum] <= 0) {
                 inventory[itemNum] = false;
+            }
+        }
+    }
+
+    /*
+     * Removes specified item count from the player inventory, if it exists.
+     */
+    public static void removeCount(String item, int amount) {
+        if (itemExists(item)) {
+            int itemNum = getItemNum(item);
+            //if it is there, remove one
+            if (inventory[itemNum]) {
+                inventoryCount[itemNum] -= amount;
+            }
+            //if none left, switch to false
+            if (inventoryCount[itemNum] <= 0) {
+                inventory[itemNum] = false;
+                inventoryCount[itemNum] = 0;
             }
         }
     }

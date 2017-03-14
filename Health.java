@@ -3,7 +3,6 @@
  * Keeps track of player's health.
  *
  * To display player health:
- * (assuming class is set to variable 'health')
  * health.print();
  *
  * To increase player health:
